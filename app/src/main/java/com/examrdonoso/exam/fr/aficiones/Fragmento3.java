@@ -32,7 +32,7 @@ public class Fragmento3 extends Fragment {
         callDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getApplicationContext());
                 dialogBuilder.setTitle("Rodrigo Donoso");
                 dialogBuilder.setMessage("Hola Profesor");
                 dialogBuilder.setCancelable(true);
@@ -60,5 +60,7 @@ public class Fragmento3 extends Fragment {
     }
 
     private Context getApplicationContext() {
+
+        return null;
     }
 }
