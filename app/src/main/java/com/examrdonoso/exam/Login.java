@@ -39,13 +39,17 @@ public class Login extends AppCompatActivity {
                 String name = sharedPreferences.getString("userName","anónimo");
                 //String password = sharedPreferences.getString("userPassword",+R.string.pass);
 
-                if(loginPassword.equals(pass)){
-                    launchMain();
-                }else{
-                    Toast toast = Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT);
+                if(loginUserName.equals("")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "El usuario no debe estar vacio", Toast.LENGTH_SHORT);
                     toast.show();
+                } else {
+                    if (loginPassword.equals(pass)) {
+                        launchMain();
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
                 }
-
             }
         });
 
