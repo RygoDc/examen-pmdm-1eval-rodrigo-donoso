@@ -28,11 +28,11 @@ public class Fragmento3 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_f3, container, false);
 
-        callDialogButton = callDialogButton.findViewById(R.id.callDialogButton);
+        callDialogButton = view.findViewById(R.id.callDialogButton);
         callDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getApplicationContext());
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
                 dialogBuilder.setTitle("Rodrigo Donoso");
                 dialogBuilder.setMessage("Hola Profesor");
                 dialogBuilder.setCancelable(true);
@@ -46,7 +46,7 @@ public class Fragmento3 extends Fragment {
                 dialogBuilder.setNegativeButton("Suspenso", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "Suspenso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Suspenso", Toast.LENGTH_SHORT).show();
                         dialogInterface.cancel();
                     }
                 });

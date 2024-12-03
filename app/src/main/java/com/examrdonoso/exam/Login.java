@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         Button loginButton = findViewById(R.id.LoginButtonTIL);
         TextInputLayout loginUserNameTIL = findViewById(R.id.loginUsernameTIL);
         TextInputLayout loginPasswordTIL = findViewById(R.id.loginPasswordTIL);
-        String pass = getApplicationContext().getString(R.string.pass);
+        String pass = getResources().getString(R.string.pass);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,15 +35,17 @@ public class Login extends AppCompatActivity {
 
                 String loginPassword = String.valueOf(loginPasswordTIL.getEditText().getText());
 
-                SharedPreferences sharedPreferences = getSharedPreferences("usuario", Context.MODE_PRIVATE);
-                String name = sharedPreferences.getString("userName","anónimo");
-                //String password = sharedPreferences.getString("userPassword",+R.string.pass);
+
 
                 if(loginUserName.equals("")){
                     Toast toast = Toast.makeText(getApplicationContext(), "El usuario no debe estar vacio", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     if (loginPassword.equals(pass)) {
+                        SharedPreferences sharedPreferences = getSharedPreferences("usuario", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("userName", loginUserName);
+                        editor.apply();
                         launchMain();
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT);

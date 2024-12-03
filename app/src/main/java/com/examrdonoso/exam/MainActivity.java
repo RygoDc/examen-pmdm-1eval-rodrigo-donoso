@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Log.e("ActionBar", getSupportActionBar().toString());
+//        Log.e("ActionBar", getSupportActionBar().toString());
         Paginador paginador = new Paginador(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(paginador);

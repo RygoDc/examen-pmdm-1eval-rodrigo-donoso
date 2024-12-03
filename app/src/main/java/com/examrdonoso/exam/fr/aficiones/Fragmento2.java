@@ -24,18 +24,12 @@ public class Fragmento2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_f2, container, false);
 
-        welcomeText = welcomeText.findViewById(R.id.welcomeText);
-        SharedPreferences sharedPreferences = getSharedPreferences("usuario", Context.MODE_PRIVATE);
+        welcomeText = view.findViewById(R.id.welcomeText);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usuario", Context.MODE_PRIVATE);
         String name = sharedPreferences.getString("userName", "anónimo");
 
         welcomeText.setText("Hola " + name);
 
         return view;
     }
-
-    private SharedPreferences getSharedPreferences(String usuario, int modePrivate) {
-
-        return null;
-    }
-
 }
